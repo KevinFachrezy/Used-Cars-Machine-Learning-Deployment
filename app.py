@@ -239,15 +239,9 @@ MAKE_TYPE = {
 }
 
 # ── Load Model ────────────────────────────────────────────────────────────────
-@st.cache_resource
-def load_model():
-    try:
-        with open('model/Used_cars_XGB.pkl', 'rb') as f:
-            return pickle.load(f)
-    except FileNotFoundError:
-        return None
-
-model = load_model()
+with open("model/linear_model.pkl", "rb") as f:
+    model = pickle.load(f)
+    
 
 # ── Header ────────────────────────────────────────────────────────────────────
 st.markdown('<div class="hero-title">Saudi Used Car<br><span class="accent">Price Estimator</span></div>',
