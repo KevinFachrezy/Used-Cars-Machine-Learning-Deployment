@@ -240,6 +240,7 @@ MAKE_TYPE = {
 
 # ── Load Model ────────────────────────────────────────────────────────────────
 with open("model/Used_cars_XGB.pkl", "rb") as f:
+
     model = pickle.load(f)
     
 
