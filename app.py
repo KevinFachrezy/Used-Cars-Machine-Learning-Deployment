@@ -119,9 +119,14 @@ MAKE_TYPE = {
 # ── Inputs ──────────────────────────────────────────────────────────────────
 make = st.selectbox("Brand (Make)", options=sorted(MAKE_TYPE.keys()))
 
-car_type = st.text_input("Car Type (e.g. Camry, Patrol, X5)", "Camry")
+car_type = st.selectbox("Model (Type)", options=MAKE_TYPE.get(make, []))
 
-region = st.selectbox("Model (Type)", options=MAKE_TYPE.get(make, []))
+region = st.selectbox("Region", [
+    "Riyadh","Jeddah","Dammam","Al-Medina","Qassim","Makkah","Jazan",
+    "Tabouk","Aseer","Al-Ahsa","Taef","Sabya","Al-Baha","Khobar","Yanbu",
+    "Hail","Al-Namas","Jubail","Al-Jouf","Abha","Hafar Al-Batin","Najran",
+    "Arar","Besha","Qurayyat","Wadi Dawasir","Sakaka"
+])
 
 origin      = st.selectbox("Origin", ["Saudi", "Gulf Arabic", "Other"])
 year        = st.slider("Year", 2000, 2025, 2018)
